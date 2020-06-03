@@ -1,0 +1,30 @@
+{
+  "name": "coffeelint-prefer-english-logical-operator",
+  "version": "0.2.0",
+  "description": "A custom coffeelint rule to prefer english style logical operators",
+  "main": "dist/prefer_english_logical_operator.js",
+  "scripts": {
+    "reset": "rm -rf node_modules && rm -f package-lock.json && npm install",
+    "postreset": "sed -i 's/: 90,$/: 0,/' ./node_modules/mocha/lib/reporters/base.js",
+    "prebuild": "coffeelint -q src test && mocha -R nyan --require coffeescript/register \"test/*.coffee\"",
+    "build": "coffee --compile --output dist/ src/",
+    "lint": "coffeelint src test",
+    "test": "mocha --require coffeescript/register test/*.coffee"
+  },
+  "keywords": [
+    "coffeelint",
+    "lint",
+    "coffeelintrule"
+  ],
+  "author": "Étienne Deparis <etienne@depar.is>",
+  "license": "WTFPL",
+  "peerDependencies": {
+    "coffeelint": "^2"
+  },
+  "devDependencies": {
+    "chai": "^4.1",
+    "coffeelint": "^2.0",
+    "coffeescript": "^2.1",
+    "mocha": "^4.1"
+  }
+}
